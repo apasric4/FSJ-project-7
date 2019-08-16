@@ -7,12 +7,11 @@ class Nav extends Component {
     return (
       <nav className="main-nav">
         <ul>
-          <li onClick={()=> this.props.performSearch('cats')}><NavLink to ="/cats">Cats</NavLink></li>
-          <li onClick={()=> this.props.performSearch('dogs')}><NavLink to ="/dogs">Dogs</NavLink></li>
-          <li onClick={()=> this.props.performSearch('computers')}><NavLink to ="/computers">Computers</NavLink></li>
+          <li onClick={()=> this.props.getImages('cats')}><NavLink to ="/cats">Cats</NavLink></li>
+          <li onClick={()=> this.props.getImages('dogs')}><NavLink to ="/dogs">Dogs</NavLink></li>
+          <li onClick={()=> this.props.getImages('computers')}><NavLink to ="/computers">Computers</NavLink></li>
         </ul>
       </nav>
-
     )
   }
 }
