@@ -25,7 +25,7 @@ class App extends Component {
 
 
   performSearch=(query='cats')=> {
-    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&user_id=${query}&tags=&per_page=24&page=1&format=json&nojsoncallback=1`)
+    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&page=1&format=json&nojsoncallback=1`)
       .then(res=> {
         const pictures=res.data.photos.photo
         this.setState({pictures});
@@ -37,12 +37,13 @@ class App extends Component {
   render() {
     console.log(this.state.pictures);
     return (
-      <BrowserRouter>
-        <div className="container">
-          <Search />
-          <Nav performSearch={this.performSearch} data={this.state.pictures}/>
-        </div>
-      </BrowserRouter>
+      <div className="container">
+        <Search />
+        <Nav performSearch={this.performSearch}  />
+        <Route path='/cats' render={()=> <PhotoList data={()=> (this.state.data)}/>} />
+        <Route path='/dogs' render={()=> <PhotoList data={()=>this.state.data} />} />
+        <Route path='/computers' render={()=> <PhotoList data={()=> this.state.data} />} />
+      </div>
     )
   }
 }
