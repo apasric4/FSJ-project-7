@@ -7,9 +7,9 @@ class Nav extends Component {
     return (
       <nav className="main-nav">
         <ul>
-          <li onClick={()=> this.props.getImages('cats')}><NavLink to ="/cats">Cats</NavLink></li>
-          <li onClick={()=> this.props.getImages('dogs')}><NavLink to ="/dogs">Dogs</NavLink></li>
-          <li onClick={()=> this.props.getImages('computers')}><NavLink to ="/computers">Computers</NavLink></li>
+          <li><NavLink to ="/cats">Cats</NavLink></li>
+          <li><NavLink to ="/dogs">Dogs</NavLink></li>
+          <li><NavLink to ="/computers">Computers</NavLink></li>
         </ul>
       </nav>
     )
